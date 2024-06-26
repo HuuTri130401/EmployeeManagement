@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mona.EmployeeManagement.Domain\Mona.EmployeeManagement.Domain.csproj" />
+    <ProjectReference Include="..\Mona.EmployeeManagement.Repositories\Mona.EmployeeManagement.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>
