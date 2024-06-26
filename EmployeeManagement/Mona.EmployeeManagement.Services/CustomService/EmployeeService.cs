@@ -35,7 +35,17 @@ namespace Mona.EmployeeManagement.Services.CustomService
             try
             {
                 var employee = _mapper.Map<Employee>(employeeRequest);
-                employee.EmployeeId = $"NV_{DateTime.UtcNow.AddHours(7):yyyy_MM_dd}_{await _unitOfWork.EmployeeRepository.GetEmployeeCountAsync() + 1}";
+
+                var random = new Random();
+                int randomId;
+                Employee existingEmployee;
+                do
+                {
+                    randomId = random.Next(1, 10000);
+                    existingEmployee = await _unitOfWork.EmployeeRepository.GetEmployeeByEmployeeIdAsync($"NV_{DateTime.UtcNow.AddHours(7):yyyy_MM_dd}_{randomId}");
+                } while (existingEmployee != null);
+
+                employee.EmployeeId = $"NV_{DateTime.UtcNow.AddHours(7):yyyy_MM_dd}_{randomId}";
                 employee.Age = DateTime.UtcNow.AddHours(7).Year - employee.DateOfBirth.Year;
                 employee.Position = enumPosition.ToString();
 

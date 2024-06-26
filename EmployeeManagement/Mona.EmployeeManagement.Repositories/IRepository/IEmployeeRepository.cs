@@ -12,10 +12,5 @@ namespace Mona.EmployeeManagement.Repositories.IRepository
     {
         Task<List<Employee>> GetEmployees(EmployeesParameters employeesParameters);
         Task<Employee> GetEmployeeByEmployeeIdAsync(string employeeId);
-        Task<int> GetEmployeeCountAsync();
-        //Task<Employee> CreateEmployee(Employee employee);
-        //Task<Employee> UpdateEmployee(Employee employee);
-        //Task DeleteEmployee(Guid employeeId);
-        //Task SoftDeleteEmployee(Guid employeeId);
     }
 }

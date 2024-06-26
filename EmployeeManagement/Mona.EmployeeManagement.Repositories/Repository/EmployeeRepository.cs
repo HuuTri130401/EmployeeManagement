@@ -21,12 +21,7 @@ namespace Mona.EmployeeManagement.Repositories.Repository
         {
             return await _dbSet
                 .FirstOrDefaultAsync(pi => pi.EmployeeId.Equals(employeeId));
-        }
-
-        public async Task<int> GetEmployeeCountAsync()
-        {
-            return await _dbSet.CountAsync();
-        }
+        }  
 
         public async Task<List<Employee>> GetEmployees(EmployeesParameters employeesParameters)
         {
@@ -37,25 +32,5 @@ namespace Mona.EmployeeManagement.Repositories.Repository
             return PagedList<Employee>
                 .ToPagedList(employees, count, employeesParameters.PageNumber, employeesParameters.PageSize);
         }
-
-        //public Task<Employee> CreateEmployee(Employee employee)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task DeleteEmployee(Guid employeeId)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task SoftDeleteEmployee(Guid employeeId)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<Employee> UpdateEmployee(Employee employee)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }
